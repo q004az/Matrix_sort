@@ -1,0 +1,35 @@
+from random import randint
+def sort_buble():
+    n = int(input())
+    m = int(input())
+    matrix = [[randint(1, 100) for j in range(m)] for i in range(n)]
+    mass = []
+    delta = n * m
+    for i in range(n):
+        for j in range(m):
+            print(matrix[i][j], end=' ')
+        print()
+
+    for i in range(n):
+        for j in range(m):
+            mass.append(matrix[i][j])
+
+    print()
+    for i in range(delta - 1):
+        for j in range(delta - 1 - i):
+            if mass[j] > mass[j + 1]:
+                mass[j], mass[j + 1] = mass[j + 1], mass[j]
+    print()
+    for i in range(delta):
+        print(mass[i], end=' ')
+        if (i + 1) % m == 0:
+            print()
+    return 0
+
+def main():
+    sort_buble()
+    return 0
+
+if __name__ == "__main__":
+    main()
+
